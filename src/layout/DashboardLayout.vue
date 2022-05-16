@@ -6,17 +6,21 @@
         <i class="nc-icon nc-chart-pie-35"></i>
         <p>Dashboard</p>
       </sidebar-link>
-      <sidebar-link to="/admin/user">
+      <sidebar-link to="/duties">
         <i class="nc-icon nc-circle-09"></i>
         <p>Duties</p>
       </sidebar-link>
-      <sidebar-link to="/admin/table-list">
+      <sidebar-link to="/calender">
         <i class="nc-icon nc-notes"></i>
         <p>Calender</p>
       </sidebar-link>
-      <sidebar-link to="/admin/typography">
+      <sidebar-link to="/budget">
         <i class="nc-icon nc-paper-2"></i>
         <p>Budget</p>
+      </sidebar-link>
+      <sidebar-link to="/setting">
+        <i class="nc-icon nc-paper-2"></i>
+        <p>Setting</p>
       </sidebar-link>
     </side-bar>
     <div class="main-panel">
