@@ -13,20 +13,25 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import App from './App.vue'
 
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import App from './App.vue';
 // LightBootstrap plugin
-import LightBootstrap from './light-bootstrap-main'
-
+import LightBootstrap from './light-bootstrap-main';
+import './registerServiceWorker';
 // router setup
-import routes from './routes/routes'
+import routes from './routes/routes';
+import Calendar from 'v-calendar/lib/components/calendar.umd'
+import DatePicker from 'v-calendar/lib/components/date-picker.umd'
 
-import './registerServiceWorker'
+
+
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
+Vue.component('calendar', Calendar)
+Vue.component('date-picker', DatePicker)
 
 // configure router
 const router = new VueRouter({

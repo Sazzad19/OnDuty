@@ -1,5 +1,7 @@
 <template>
-  <div>Calender</div>
+  <div class="row justify-content-center">
+    <calendar />
+  </div>
 </template>
 
 <script>

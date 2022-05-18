@@ -2,6 +2,7 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 import AddDuties from '../pages/AddDuties.vue'
 import Budgets from '../pages/Budgets.vue'
 import Calender from '../pages/Calender.vue'
+import DeleteDuties from '../pages/DeleteDuties.vue'
 import Duties from '../pages/Duties.vue'
 // GeneralViews
 import NotFound from '../pages/NotFoundPage.vue'
@@ -35,6 +36,11 @@ const routes = [
         path: '/add-duties',
         name: 'add-duties',
         component: AddDuties,
+      },
+      {
+        path: '/delete-duties',
+        name: 'delete-duties',
+        component: DeleteDuties,
       },
     ]
   },
