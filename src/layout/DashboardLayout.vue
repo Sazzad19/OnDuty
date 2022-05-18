@@ -2,10 +2,6 @@
   <div class="wrapper">
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/admin/overview">
-        <i class="nc-icon nc-chart-pie-35"></i>
-        <p>Dashboard</p>
-      </sidebar-link>
       <sidebar-link to="/duties">
         <i class="nc-icon nc-circle-09"></i>
         <p>Duties</p>

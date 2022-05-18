@@ -14,24 +14,24 @@
 
  */
 
+import Calendar from 'v-calendar/lib/components/calendar.umd';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+// import Vuex from 'vuex';
 import App from './App.vue';
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main';
 import './registerServiceWorker';
 // router setup
 import routes from './routes/routes';
-import Calendar from 'v-calendar/lib/components/calendar.umd'
-import DatePicker from 'v-calendar/lib/components/date-picker.umd'
-
+// import store from './store/store.js';
 
 
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 Vue.component('calendar', Calendar)
-Vue.component('date-picker', DatePicker)
+// Vue.use(Vuex)
 
 // configure router
 const router = new VueRouter({
@@ -45,7 +45,6 @@ const router = new VueRouter({
     }
   }
 })
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -46,13 +46,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Start Date</label>
-               <date-picker v-model='startDate' />
+              <date-picker v-model="startDate" valueType="format"></date-picker>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">End Date</label>
-                 <date-picker v-model='endDate' />
+              <date-picker v-model="endDate" valueType="format"></date-picker>
             </div>
           </div>
         </div>
@@ -132,11 +132,13 @@
 </template>
 
 <script>
-import "pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css";
 import Multiselect from "vue-multiselect";
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
 export default {
   components: {
-    Multiselect
+    Multiselect,
+    DatePicker
   },
   data() {
     return {
@@ -153,12 +155,7 @@ export default {
       ],
       startDate: null,
       endDate: null,
-      dateOptions: {
-        format: "DD/MM/YYYY h:mm:ss",
-        useCurrent: false,
-        showClear: true,
-        showClose: true
-      }
+      format: "YYYY-MM-DD"
     };
   },
   methods: {
