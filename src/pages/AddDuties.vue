@@ -2,10 +2,8 @@
   <div class="content" style="background-color:hsl(134deg 10% 61% / 9%)">
     <div class="container-fluid">
       <div class="row"><h5>Add Duty</h5></div>
-      <div class="row">
-        <div class="alert alert-success" role="alert" v-if="successMessage">
-          {{ successMessage }}
-        </div>
+      <div class="alert alert-success" role="alert" v-if="successMessage">
+        {{ successMessage }}
       </div>
       <form>
         <div class="row form-row">

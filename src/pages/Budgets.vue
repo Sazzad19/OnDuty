@@ -1,9 +1,14 @@
 <template>
   <div class="content" style="background-color:hsl(134deg 10% 61% / 9%)">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
+      <div class="row justify-content-between">
+        <div>
           <h6>Monthly Budget</h6>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success" @click="addBudgetPage">
+            Add Budget
+          </button>
         </div>
       </div>
       <div class="row budget-list">
@@ -171,6 +176,9 @@ export default {
   methods: {
     calculatePercent(budget) {
       return Math.floor((budget.spent / budget.budget) * 100);
+    },
+    addBudgetPage() {
+      this.$router.push("/add-budget");
     }
   }
 };

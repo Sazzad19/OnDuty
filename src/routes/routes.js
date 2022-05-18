@@ -1,4 +1,5 @@
 import DashboardLayout from '../layout/DashboardLayout.vue'
+import AddBudget from '../pages/AddBudget.vue'
 import AddDuties from '../pages/AddDuties.vue'
 import Budgets from '../pages/Budgets.vue'
 import Calender from '../pages/Calender.vue'
@@ -36,6 +37,11 @@ const routes = [
         path: '/add-duties',
         name: 'add-duties',
         component: AddDuties,
+      },
+      {
+        path: '/add-budget',
+        name: 'add-budget',
+        component: AddBudget,
       },
       {
         path: '/delete-duties',

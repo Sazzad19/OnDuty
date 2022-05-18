@@ -169,7 +169,6 @@ export default {
     loadTrash() {
       this.dutyArray = [];
       this.dutyArray = this.duties.filter(du => du.status === "Trash");
-      console.log("fsdf", this.dutyArray);
     }
   }
 };

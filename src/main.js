@@ -38,7 +38,7 @@ const store = new Vuex.Store({
       state.duties.push(duty);
     },
     addBudget(state, budget){
-      budgets.duties.push(budget);
+      state.budgets.push(budget);
 
     }
   }
