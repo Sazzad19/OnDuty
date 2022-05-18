@@ -17,21 +17,38 @@
 import Calendar from 'v-calendar/lib/components/calendar.umd';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import Vuex from 'vuex';
+import Vuex from 'vuex';
 import App from './App.vue';
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main';
 import './registerServiceWorker';
-// router setup
 import routes from './routes/routes';
+import budgets from './store/budgets';
+import duties from './store/duties';
 // import store from './store/store.js';
+// router setup
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state: {
+    duties: duties,
+    budgets: budgets
+  },
+  mutations: {
+    addDuty (state, duty) {
+      state.duties.push(duty);
+    },
+    addBudget(state, budget){
+      budgets.duties.push(budget);
+
+    }
+  }
+})
 
 
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 Vue.component('calendar', Calendar)
-// Vue.use(Vuex)
 
 // configure router
 const router = new VueRouter({
@@ -49,5 +66,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   render: h => h(App),
-  router
+  router,
+  store
 })
