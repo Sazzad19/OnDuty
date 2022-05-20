@@ -9,16 +9,20 @@
       <form>
         <div class="row form-row">
           <div class="col-md-6">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Category</label>
-              <input
-                type="text"
-                class="form-control"
-                id="category"
-                aria-describedby="category"
-                v-model="budget.category"
-              />
-            </div>
+            <label for="exampleInputEmail1">Category</label>
+
+            <multiselect
+              v-model="category"
+              tag-placeholder="Add this as new category"
+              placeholder="Search or add categories"
+              label="name"
+              track-by="code"
+              :options="CatOptions"
+              :multiple="true"
+              :taggable="true"
+              @select="addCategory"
+              @tag="addCategoryTag"
+            ></multiselect>
           </div>
           <div class="col-md-6">
             <div class="form-group">
@@ -65,7 +69,7 @@
           Add Budget
         </button>
 
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" @click="cancel">
           Cancel
         </button>
       </div>
@@ -75,31 +79,21 @@
 
 <script>
 import Multiselect from "vue-multiselect";
-import DatePicker from "vue2-datepicker";
-import "vue2-datepicker/index.css";
 export default {
   components: {
-    Multiselect,
-    DatePicker
+    Multiselect
   },
   data() {
     return {
-      category: [{ name: "Home", code: "ho" }],
-      tag: [{ name: "Promotion", code: "pr" }],
+      category: [{ name: "Health & Medical", code: "hm" }],
       CatOptions: [
-        { name: "Home", code: "ho" },
-        { name: "Work", code: "wo" },
-        { name: "Leisure", code: "le" }
-      ],
-      tagOptions: [
-        { name: "Promotion", code: "ho" },
-        { name: "Advert", code: "wo" }
+        { name: "Health & Medical", code: "hm" },
+        { name: "Eating", code: "ea" },
+        { name: "Home Decoration", code: "hd" }
       ],
       startDate: null,
       endDate: null,
-      format: "YYYY-MM-DD",
       successMessage: "",
-
       budget: {
         category: "",
         description: "",
@@ -118,6 +112,40 @@ export default {
         spent: null
       };
       this.successMessage = "Budget added successfully.";
+    },
+    addCategory(newTag) {
+      const tag = {
+        name: newTag.name,
+        code: newTag.name.substring(0, 2) + Math.floor(Math.random() * 10000000)
+      };
+      this.$nextTick(() => {
+        this.category = [];
+
+        this.category.push(tag);
+      });
+
+      this.budget.category = newTag.name;
+    },
+    addCategoryTag(newTag) {
+      const tag = {
+        name: newTag,
+        code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
+      };
+      this.CatOptions.push(tag);
+      this.category = [];
+      this.$nextTick(() => {
+        this.category.push(tag);
+      });
+
+      this.budget.category = newTag;
+    },
+    cancel() {
+      this.budget = {
+        category: "",
+        description: "",
+        budget: null,
+        spent: null
+      };
     }
   }
 };

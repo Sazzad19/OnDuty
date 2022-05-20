@@ -175,7 +175,7 @@ export default {
   },
   methods: {
     calculatePercent(budget) {
-      return Math.floor((budget.spent / budget.budget) * 100);
+      return Math.ceil((budget.spent / budget.budget) * 100);
     },
     addBudgetPage() {
       this.$router.push("/add-budget");
