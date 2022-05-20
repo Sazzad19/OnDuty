@@ -1,11 +1,12 @@
+//date format MM-DD-YYYY
 const duties = [
     {
       id: 1,
-      title: "Duty1",
+      title: "Booho Man",
       description:
-        " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      startDate: "12-12-2022",
-      endDate: "13-12-2022",
+        "Take  pictures of booho man for advertising and make Youtube video for their....",
+      startDate: "05-12-2022",
+      endDate: "05-13-2022",
       status: "My Duty",
       progress: 0,
       reminder: "",
@@ -15,11 +16,11 @@ const duties = [
     },
     {
       id: 2,
-      title: "Duty2",
+      title: "Youtube Video Edit",
       description:
-        " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      startDate: "12-12-2022",
-      endDate: "13-12-2022",
+        "Edit 3  video content for my new concept smash and pass get more episodes ready for release every Thurstday so i...",
+      startDate: "06-13-2022",
+      endDate: "06-14-2022",
       status: "Complete",
       progress: 100,
       reminder: "",
@@ -29,11 +30,11 @@ const duties = [
     },
     {
       id: 3,
-      title: "Duty3",
+      title: "Cooking Breakfast",
       description:
-        " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      startDate: "12-12-2022",
-      endDate: "13-12-2022",
+        "Cook breakfast for Mark for his school tiffin",
+      startDate: "07-12-2022",
+      endDate: "07-13-2022",
       status: "Complete",
       progress: 100,
       reminder: "",
@@ -43,9 +44,9 @@ const duties = [
     },
     {
       id: 4,
-      title: "Duty4",
+      title: "Publish New Youtube Video",
       description:
-        " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
+        "Making 2 new video for my new upcommoing channel and make it ready for release as soon as possible.....",
       startDate: "12-12-2022",
       endDate: "13-12-2022",
       status: "In Progress",
@@ -57,10 +58,10 @@ const duties = [
     },
     {
       id: 5,
-      title: "Duty5",
+      title: "Old Videos Analysis",
       description:
-        " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry",
-      startDate: "12-12-2022",
+        "Analysis my old published videos for videos total view count and delete some of them if necessary.....",
+      startDate: "12-10-2022",
       endDate: "13-12-2022",
       status: "Trash",
       progress: 100,

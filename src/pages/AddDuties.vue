@@ -151,7 +151,7 @@
         <button type="button" class="btn btn-primary">
           Add More
         </button>
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" @click="cancel">
           Cancel
         </button>
       </div>
@@ -170,8 +170,8 @@ export default {
   },
   data() {
     return {
-      category: [{ name: "Home", code: "ho" }],
-      tag: [{ name: "Promotion", code: "pr" }],
+      category: [],
+      tag: [],
       CatOptions: [
         { name: "Home", code: "ho" },
         { name: "Work", code: "wo" },
@@ -232,6 +232,22 @@ export default {
         billable: ""
       };
       this.successMessage = "Duty added successfully.";
+    },
+    cancel() {
+      this.category = [];
+      this.tag = [];
+      this.duty = {
+        title: "",
+        description: "",
+        startDate: null,
+        endDate: null,
+        status: "My Duty",
+        progress: 0,
+        reminder: "",
+        recurrence: "",
+        priority: "",
+        billable: ""
+      };
     }
   }
 };

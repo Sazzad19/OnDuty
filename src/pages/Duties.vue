@@ -86,7 +86,8 @@
                     </div>
                   </div>
                 </div>
-                <div slot="content">
+
+                <div slot="content" @click="selectDuty(duty)">
                   <div class="row text-center">
                     <h4 class="text-center">
                       {{ duty.description }}
@@ -116,14 +117,15 @@
           </div>
         </div>
         <div class="col-xl-4 col-md-12">
-          <div class="row"><h5>12-12-2020</h5></div>
-          <div class="row"><h6>Bohoo Man</h6></div>
+          <div class="row">
+            <h5>{{ selectedDuty.startDate }}</h5>
+          </div>
+          <div class="row">
+            <h6>{{ selectedDuty.title }}</h6>
+          </div>
           <div class="row">
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make
+              {{ selectedDuty.description }}
             </p>
           </div>
         </div>
@@ -133,20 +135,35 @@
 </template>
 <script>
 import StatsCard from "src/components/Cards/StatsCard.vue";
+import { EventBus } from "../../src/event-bus.js";
+
 export default {
   components: {
     StatsCard
   },
   mounted: function() {
-    this.dutyArray = this.duties;
+    this.dutyArray = this.duties.filter(duty => duty.status != "Trash");
+    EventBus.$on("dutyInput", data => {
+      if (data != "") {
+        this.dutyArray = [];
+        this.dutyArray = this.duties.filter(
+          duty =>
+            duty.title.includes(data) ||
+            duty.description.includes(data) ||
+            duty.startDate.includes(data) ||
+            duty.endDate.includes(data)
+        );
+      }
+    });
   },
   data() {
     return {
       duties: this.$store.state.duties,
-      dutyArray: []
+      dutyArray: [],
+      selectedDuty: {}
     };
   },
-  methods: {},
+
   methods: {
     goToAddDutisPage() {
       this.$router.push("/add-duties");
@@ -156,7 +173,7 @@ export default {
     },
     loadMyDuties() {
       this.dutyArray = [];
-      this.dutyArray = this.duties;
+      this.dutyArray = this.duties.filter(duty => duty.status != "Trash");
     },
     loadCompleteDuties() {
       this.dutyArray = [];
@@ -169,6 +186,9 @@ export default {
     loadTrash() {
       this.dutyArray = [];
       this.dutyArray = this.duties.filter(du => du.status === "Trash");
+    },
+    selectDuty(duty) {
+      this.selectedDuty = duty;
     }
   }
 };
@@ -180,6 +200,9 @@ export default {
 }
 button {
   margin-right: 20px;
+}
+.parentDiv {
+  height: auto;
 }
 // html,
 // body {

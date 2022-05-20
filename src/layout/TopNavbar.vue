@@ -34,11 +34,21 @@
             <a class="dropdown-item" href="#">Notification 4</a>
             <a class="dropdown-item" href="#">Another notification</a>
           </base-dropdown>
-          <li class="nav-item">
+          <li class="nav-item row justify-content-between">
             <a href="#" class="nav-link">
               <i class="nc-icon nc-zoom-split"></i>
               <span class="d-lg-block">&nbsp;Search</span>
+              <span class="d-lg-none">Search</span>
             </a>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="Searh"
+                @input="hanldeSearch"
+              />
+            </div>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -67,6 +77,7 @@
   </nav>
 </template>
 <script>
+import { EventBus } from "../../src/event-bus.js";
 export default {
   computed: {
     routeName() {
@@ -94,6 +105,9 @@ export default {
     },
     hideSidebar() {
       this.$sidebar.displaySidebar(false);
+    },
+    hanldeSearch(e) {
+      EventBus.$emit("dutyInput", e.target.value);
     }
   }
 };

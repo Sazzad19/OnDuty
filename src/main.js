@@ -40,6 +40,10 @@ const store = new Vuex.Store({
     addBudget(state, budget){
       state.budgets.push(budget);
 
+    }, 
+    removeDuty(state, duty){
+      let index = state.duties.indexOf(dt => duty.id === dt.id);
+      state.duties.splice(index, 1);
     }
   }
 })

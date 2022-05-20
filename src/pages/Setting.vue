@@ -9,6 +9,13 @@
               <label for="exampleInputEmail1">Language</label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>English</option>
+                <option>Hindi </option>
+                <option>Arabic </option>
+                <option>Portuguese </option>
+                <option>Russian </option>
+                <option>Japanese </option>
+                <option>French</option>
+                <option>Urdu</option>
                 <option>Bengali</option>
               </select>
             </div>
@@ -17,8 +24,18 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Country</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>Nigeria</option>
-                <option>Uman</option>
+                <option>United Kigdom</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Chin</option>
+                <option>Russia</option>
+                <option>Ukrain</option>
+                <option>Bangladesh</option>
+
+                <option>India</option>
+                <option>Pakistan</option>
               </select>
             </div>
           </div>

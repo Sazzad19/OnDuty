@@ -15,7 +15,15 @@
     <li class="nav-item">
       <a href="#" class="nav-link">
         <i class="nc-icon nc-zoom-split hidden-lg-up"></i>
-        <span class="d-lg-none">Search</span>
+        <!-- <span class="d-lg-none">Search</span>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="Searh"
+          />
+        </div> -->
       </a>
     </li>
     <base-dropdown title="Dropdown">
@@ -35,9 +43,8 @@
   </ul>
 </template>
 <script>
-  export default {
-    name: 'mobile-menu'
-  }
+export default {
+  name: "mobile-menu"
+};
 </script>
-<style>
-</style>
+<style></style>

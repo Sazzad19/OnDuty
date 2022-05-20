@@ -11,15 +11,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Category</label>
-              <select
+              <input
+                type="text"
                 class="form-control"
-                id="exampleFormControlSelect1"
+                id="category"
+                aria-describedby="category"
                 v-model="budget.category"
-              >
-                <option>Health & Beauty</option>
-                <option>Transport</option>
-                <option>Home Decoration</option>
-              </select>
+              />
             </div>
           </div>
           <div class="col-md-6">

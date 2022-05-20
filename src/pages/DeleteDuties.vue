@@ -23,41 +23,18 @@
         <div class="row dutis-list">
           <div class="col-12">
             <div class="list-group">
-              <li class="list-group-item">
+              <li
+                class="list-group-item"
+                v-for="duty in dutyArray"
+                :key="duty.id"
+              >
                 <input
                   type="checkbox"
                   aria-label="Checkbox for following text input"
                   class="duty-checbox"
+                  @change="selectDuty($event, duty)"
                 />
-                Cras justo odio
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Dapibus ac facilisis in
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Morbi leo risus
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Porta ac consectetur ac
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Vestibulum at eros
+                {{ duty.title }}
               </li>
             </div>
           </div>
@@ -73,47 +50,24 @@
         <div class="row dutis-list">
           <div class="col-12">
             <div class="list-group">
-              <li class="list-group-item">
+              <li
+                class="list-group-item"
+                v-for="trashDuty in dutyTrash"
+                :key="trashDuty.id"
+              >
                 <input
                   type="checkbox"
                   aria-label="Checkbox for following text input"
                   class="duty-checbox"
+                  @change="selectTrashDuty($event, trashDuty)"
                 />
-                Cras justo odio
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Dapibus ac facilisis in
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Morbi leo risus
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Porta ac consectetur ac
-              </li>
-              <li class="list-group-item">
-                <input
-                  type="checkbox"
-                  aria-label="Checkbox for following text input"
-                  class="duty-checbox"
-                />Vestibulum at eros
+                {{ trashDuty.title }}
               </li>
             </div>
           </div>
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="btn btn-danger" @click="deleteDuty">
+          <button type="button" class="btn btn-danger" @click="deleteTrash">
             Empty Trash
             <i class="fa fa-trash"></i>
           </button>
@@ -125,8 +79,73 @@
 
 <script>
 export default {
+  data() {
+    return {
+      dutyArray: [],
+      dutyTrash: [],
+      dutyToDelete: [],
+      dutyToDeleteFromTrash: []
+    };
+  },
+  mounted() {
+    this.dutyArray = this.$store.state.duties.filter(
+      duty => duty.status != "Trash"
+    );
+    this.dutyTrash = this.$store.state.duties.filter(
+      duty => duty.status === "Trash"
+    );
+  },
   methods: {
-    deleteDuty() {}
+    deleteDuty() {
+      this.dutyToDelete.forEach(duty => {
+        let dutyfound = this.$store.state.duties.find(dt => duty.id === dt.id);
+        dutyfound.status = "Trash";
+        this.deleteFromDutyList(dutyfound);
+      });
+      this.dutyToDelete = [];
+    },
+    selectDuty(e, duty) {
+      if (e.target.checked) {
+        this.dutyToDelete.push(duty);
+      } else {
+        let index = this.dutyToDelete.findIndex(dt => dt.id == duty.id);
+        if (index != -1) {
+          this.dutyToDelete.splice(index, 1);
+        }
+      }
+    },
+    deleteFromDutyList(duty) {
+      let index = this.dutyArray.findIndex(dt => dt.id == duty.id);
+      if (index != -1) {
+        this.dutyArray.splice(index, 1);
+        this.dutyTrash.push(duty);
+      }
+    },
+    selectTrashDuty(e, duty) {
+      if (e.target.checked) {
+        this.dutyToDeleteFromTrash.push(duty);
+      } else {
+        let index = this.dutyToDeleteFromTrash.findIndex(
+          dt => dt.id === duty.id
+        );
+        if (index != -1) {
+          this.dutyToDeleteFromTrash.splice(index, 1);
+        }
+      }
+    },
+    deleteTrash() {
+      this.dutyToDeleteFromTrash.forEach(duty => {
+        this.$store.commit("removeDuty", duty);
+        this.deleteFromTrashList(duty);
+      });
+      this.dutyToDeleteFromTrash = [];
+    },
+    deleteFromTrashList(duty) {
+      let index = this.dutyTrash.findIndex(dt => dt.id == duty.id);
+      if (index != -11) {
+        this.dutyTrash.splice(index, 1);
+      }
+    }
   }
 };
 </script>
