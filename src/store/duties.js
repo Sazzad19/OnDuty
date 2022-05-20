@@ -32,7 +32,7 @@ const duties = [
       id: 3,
       title: "Cooking Breakfast",
       description:
-        "Cook breakfast for Mark for his school tiffin",
+        "Cook breakfast for Mark for his school tiffin. I have to recieve him also from school and take him to playground.",
       startDate: "07-12-2022",
       endDate: "07-13-2022",
       status: "Complete",

@@ -41,6 +41,12 @@ export default {
     DashboardContent,
     MobileMenu
   },
+  mounted(){
+    if(this.$route.fullPath === '/'){
+      this.$router.push('/duties')
+    }
+    // if(this.$router)
+  },
   methods: {
     toggleSidebar() {
       if (this.$sidebar.showSidebar) {

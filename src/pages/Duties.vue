@@ -72,16 +72,16 @@
               <stats-card>
                 <div slot="header" class="icon-warning" style="height: 15px;">
                   <div class="row">
-                    <div class="col-9">
+                    <div class="col-8">
                       <div>
                         <span class="badge badge-pill badge-primary">{{
                           duty.status
                         }}</span>
                       </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                       <div class="icon-big">
-                        <p class="card-category">3 minutes ago</p>
+                        <h5 class="card-category">{{duty.startDate}} - {{duty.endDate}}</h5>
                       </div>
                     </div>
                   </div>
