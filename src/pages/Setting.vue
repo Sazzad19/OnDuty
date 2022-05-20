@@ -61,8 +61,18 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Time Zone</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>Mumbai</option>
-                <option>Dhaka</option>
+                <option>United Kigdom</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Chin</option>
+                <option>Russia</option>
+                <option>Ukrain</option>
+                <option>Bangladesh</option>
+
+                <option>India</option>
+                <option>Pakistan</option>
               </select>
             </div>
           </div>
@@ -71,7 +81,11 @@
               <label for="exampleInputEmail1">Font Size</label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>10</option>
-                <option>20</option>
+                <option>15</option>
+                 <option>20</option>
+                <option>25</option>
+                <option>30</option>
+
               </select>
             </div>
           </div>
