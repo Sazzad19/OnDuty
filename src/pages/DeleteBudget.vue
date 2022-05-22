@@ -18,7 +18,7 @@
           </div>
         </div> -->
         <div class="row dutis-list">
-          <div class="col-12"><h4>Select duties to delete</h4></div>
+          <div class="col-12"><h4>Select budgets to delete</h4></div>
         </div>
         <div class="row dutis-list">
           <div class="col-12">
@@ -34,7 +34,7 @@
                   class="duty-checbox"
                   @change="selectDuty($event, duty)"
                 />
-                {{ duty.title }}
+                {{ duty.category }}
               </li>
             </div>
           </div>
@@ -61,7 +61,7 @@
                   class="duty-checbox"
                   @change="selectTrashDuty($event, trashDuty)"
                 />
-                {{ trashDuty.title }}
+                {{ trashDuty.category }}
               </li>
             </div>
           </div>
@@ -90,10 +90,10 @@ export default {
     };
   },
   mounted() {
-    this.dutyArray = this.$store.state.duties.filter(
+    this.dutyArray = this.$store.state.budgets.filter(
       duty => duty.status != "Trash"
     );
-    this.dutyTrash = this.$store.state.duties.filter(
+    this.dutyTrash = this.$store.state.budgets.filter(
       duty => duty.status === "Trash"
     );
        if(!this.$store.state.loggedIn){
@@ -105,7 +105,7 @@ export default {
   methods: {
     deleteDuty() {
       this.dutyToDelete.forEach(duty => {
-        let dutyfound = this.$store.state.duties.find(dt => duty.id === dt.id);
+        let dutyfound = this.$store.state.budgets.find(dt => duty.id === dt.id);
         dutyfound.status = "Trash";
         this.deleteFromDutyList(dutyfound);
       });
@@ -142,7 +142,7 @@ export default {
     },
     deleteTrash() {
       this.dutyToDeleteFromTrash.forEach(duty => {
-        this.$store.commit("removeDuty", duty);
+        this.$store.commit("removeBudget", duty);
         this.deleteFromTrashList(duty);
       });
       this.dutyToDeleteFromTrash = [];

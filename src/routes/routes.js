@@ -3,6 +3,7 @@ import AddBudget from '../pages/AddBudget.vue'
 import AddDuties from '../pages/AddDuties.vue'
 import Budgets from '../pages/Budgets.vue'
 import Calender from '../pages/Calender.vue'
+import DeleteBudget from '../pages/DeleteBudget.vue'
 import DeleteDuties from '../pages/DeleteDuties.vue'
 import Duties from '../pages/Duties.vue'
 // GeneralViews
@@ -47,6 +48,11 @@ const routes = [
         path: '/delete-duties',
         name: 'delete-duties',
         component: DeleteDuties,
+      },
+      {
+        path: '/delete-budget',
+        name: 'delete-budget',
+        component: DeleteBudget,
       },
     ]
   },

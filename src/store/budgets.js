@@ -3,6 +3,7 @@ const budgets = [{
     category: 'Eating out',
     budget: 100,
     spent: 100,
+    status: 'Trash'
 
 },
 {
@@ -10,6 +11,7 @@ const budgets = [{
     category: 'Transport',
     budget: 1300,
     spent: 1000,
+    status: 'MyBudget'
 
 },
 {
@@ -17,6 +19,7 @@ const budgets = [{
     category: 'Health & Beauty',
     budget: 2000,
     spent: 0,
+    status: 'MyBudget'
 
 },
 {
@@ -24,6 +27,7 @@ const budgets = [{
     category: 'Shopping',
     budget: 5000,
     spent: 500,
+    status: 'MyBudget'
 
 }]
 

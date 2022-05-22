@@ -9,6 +9,9 @@
           <button type="button" class="btn btn-success" @click="addBudgetPage">
             Add Budget
           </button>
+          <button type="button" class="btn btn-success" @click="deleteBudgetPage">
+            Delete Budget
+          </button>
         </div>
       </div>
       <div class="row budget-list">
@@ -172,7 +175,7 @@ export default {
   data() {
     return {
       show: false,
-      budgets: this.$store.state.budgets
+      budgets: this.$store.state.budgets.filter(bd => bd.status !== 'Trash')
     };
   },
   methods: {
@@ -181,6 +184,9 @@ export default {
     },
     addBudgetPage() {
       this.$router.push("/add-budget");
+    },
+    deleteBudgetPage(){
+      this.$router.push("/delete-budget");
     }
   },
   mounted(){
