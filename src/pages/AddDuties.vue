@@ -156,6 +156,7 @@
         </button>
       </div>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 
@@ -170,6 +171,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       category: [],
       tag: [],
       CatOptions: [
@@ -199,6 +201,13 @@ export default {
         billable: ""
       }
     };
+  },
+  mounted(){
+     if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
+    }
   },
   methods: {
     addTag(newTag) {

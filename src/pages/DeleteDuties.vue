@@ -74,6 +74,7 @@
         </div>
       </div>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 
@@ -84,7 +85,8 @@ export default {
       dutyArray: [],
       dutyTrash: [],
       dutyToDelete: [],
-      dutyToDeleteFromTrash: []
+      dutyToDeleteFromTrash: [],
+      show: false
     };
   },
   mounted() {
@@ -94,6 +96,11 @@ export default {
     this.dutyTrash = this.$store.state.duties.filter(
       duty => duty.status === "Trash"
     );
+       if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
+    }
   },
   methods: {
     deleteDuty() {

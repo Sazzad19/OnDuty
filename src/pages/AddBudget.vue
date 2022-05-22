@@ -74,6 +74,7 @@
         </button>
       </div>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 
@@ -85,6 +86,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       category: [{ name: "Health & Medical", code: "hm" }],
       CatOptions: [
         { name: "Health & Medical", code: "hm" },
@@ -101,6 +103,13 @@ export default {
         spent: null
       }
     };
+  },
+  mounted(){
+     if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
+    }
   },
   methods: {
     addBudget() {

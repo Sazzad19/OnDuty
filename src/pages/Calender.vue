@@ -13,11 +13,17 @@
         </ul>
       </div>
     </calendar>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 
 <script>
 export default {
+  data(){
+return {
+  show: false
+}
+  },
   computed: {
     attributes() {
       return [
@@ -32,6 +38,13 @@ export default {
           customData: duty
         }))
       ];
+    }
+  },
+  mounted(){
+      if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
     }
   }
 };

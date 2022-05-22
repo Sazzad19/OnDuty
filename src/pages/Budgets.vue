@@ -160,6 +160,7 @@
         </div>
       </div>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 <script>
@@ -170,6 +171,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       budgets: this.$store.state.budgets
     };
   },
@@ -179,6 +181,13 @@ export default {
     },
     addBudgetPage() {
       this.$router.push("/add-budget");
+    }
+  },
+  mounted(){
+       if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
     }
   }
 };

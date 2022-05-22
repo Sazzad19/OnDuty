@@ -3,7 +3,7 @@ import BaseCheckbox from './components/Inputs/BaseCheckbox.vue'
 import BaseRadio from './components/Inputs/BaseRadio.vue'
 import BaseDropdown from './components/BaseDropdown.vue'
 import Card from './components/Cards/Card.vue'
-
+import SignUpModal from './components/Modal/SignUpModal'
 /**
  * You can register global components here and use them as a plugin in your main Vue instance
  */
@@ -15,6 +15,7 @@ const GlobalComponents = {
     Vue.component(BaseRadio.name, BaseRadio)
     Vue.component(BaseDropdown.name, BaseDropdown)
     Vue.component('card', Card)
+    Vue.component('sign-up-modal', SignUpModal)
   }
 }
 

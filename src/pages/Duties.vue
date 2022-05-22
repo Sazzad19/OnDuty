@@ -131,6 +131,7 @@
         </div>
       </div>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 <script>
@@ -155,12 +156,18 @@ export default {
         );
       }
     });
+    if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
+    }
   },
   data() {
     return {
       duties: this.$store.state.duties,
       dutyArray: [],
-      selectedDuty: {}
+      selectedDuty: {},
+      show: false
     };
   },
 

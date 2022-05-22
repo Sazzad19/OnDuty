@@ -17,43 +17,20 @@
 import Calendar from 'v-calendar/lib/components/calendar.umd';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Vuex from 'vuex';
+
 import App from './App.vue';
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main';
 import './registerServiceWorker';
 import routes from './routes/routes';
-import budgets from './store/budgets';
-import duties from './store/duties';
-// import store from './store/store.js';
-// router setup
-Vue.use(Vuex)
-const store = new Vuex.Store({
-  state: {
-    duties: duties,
-    budgets: budgets
-  },
-  mutations: {
-    addDuty (state, duty) {
-      state.duties.push(duty);
-    },
-    addBudget(state, budget){
-      state.budgets.push(budget);
-
-    }, 
-    removeDuty(state, duty){
-      let index = state.duties.indexOf(dt => duty.id === dt.id);
-      state.duties.splice(index, 1);
-    }
-  }
-})
-
+import store from './store/store.js'
+import VModal from 'vue-js-modal'
 
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 Vue.component('calendar', Calendar)
-
+Vue.use(VModal)
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes

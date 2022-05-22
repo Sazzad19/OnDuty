@@ -26,7 +26,9 @@
 
       <content-footer></content-footer>
     </div>
+    
   </div>
+  
 </template>
 <style lang="scss"></style>
 <script>
@@ -41,10 +43,20 @@ export default {
     DashboardContent,
     MobileMenu
   },
+  data(){
+return{
+  show: false
+}
+  },
   mounted(){
     if(this.$route.fullPath === '/'){
       this.$router.push('/duties')
     }
+    // if(!this.$store.state.loggedIn){
+    //   console.log('not login');
+    //   this.show = true;
+      
+    // }
     // if(this.$router)
   },
   methods: {

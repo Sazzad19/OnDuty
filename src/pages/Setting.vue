@@ -146,6 +146,7 @@
         </div>
       </form>
     </div>
+    <sign-up-modal :showModal="show"></sign-up-modal>
   </div>
 </template>
 
@@ -160,6 +161,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       category: [{ name: "Home", code: "ho" }],
       tag: [{ name: "Promotion", code: "pr" }],
       CatOptions: [
@@ -197,6 +199,13 @@ export default {
       };
       this.CatOptions.push(tag);
       this.category.push(tag);
+    }
+  },
+  mounted(){
+     if(!this.$store.state.loggedIn){
+      console.log('not login');
+      this.show = true;
+      
     }
   }
 };
