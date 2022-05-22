@@ -27,7 +27,7 @@
                       <h6 class="budget-text">Spent: {{ budget.spent }}$</h6>
                     </div>
                     <div>
-                      <h6 class="budget-text">Buget: {{ budget.budget }}$</h6>
+                      <h6 class="budget-text">Budget: {{ budget.budget }}$</h6>
                       <h6 class="budget-text">
                         {{ budget.budget - budget.spent }}$ Left
                       </h6>

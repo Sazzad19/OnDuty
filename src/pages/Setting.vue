@@ -24,14 +24,14 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Country</label>
               <select class="form-control" id="exampleFormControlSelect1">
-                <option>United Kigdom</option>
+                <option>United Kingdom</option>
                 <option>USA</option>
                 <option>Canada</option>
                 <option>Germany</option>
                 <option>France</option>
-                <option>Chin</option>
+                <option>China</option>
                 <option>Russia</option>
-                <option>Ukrain</option>
+                <option>Ukraine</option>
                 <option>Bangladesh</option>
 
                 <option>India</option>
